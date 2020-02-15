@@ -1,0 +1,60 @@
+@extends('layouts.admin')
+
+@section('title', 'Edit a Video')
+
+@section('content-header', 'Edit a Video')
+
+@section('breadcrumb')
+    <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i>Dasboard</a></li>
+    <li><a href="{{route('admin.video')}}"><i class="fa fa-suitcase"></i> Videos</a></li>
+    <li class="active">Edit a Video</li>
+@endsection
+
+@section('content')
+
+@include('notification.notify')
+  <div class="row">
+    <div class="col-md-10">
+      <div class="box box-primary">
+
+        <div class="box-header with-border">
+           <h3 class="box-title">Edit a Video ({{ $video->title }})</h3>
+           <div class="box-tools pull-right">
+              <a href="{{route('admin.video')}}" class="btn btn-default pull-right">Videos</a>
+           </div>
+        </div>
+
+        <form class="form-horizontal" action="{{route('admin.video.update', $video->id)}}" method="POST" role="form">
+          {{ csrf_field() }}
+          <div class="box-body">
+            <div class="form-group">
+              <label for="title" class="col-sm-1 control-label">Title</label>
+              <div class="col-sm-10">
+                  <input type="text" required class="form-control" id="title" name="title" value="{{ $video->title }}" placeholder="Video Title">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="url" class="col-sm-1 control-label">Youtube URL</label>
+              <div class="col-sm-10">
+                  <input type="url" required class="form-control" id="url" name="url" value="{{ $video->url }}" placeholder="Youtube URL">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="videoId" class="col-sm-1 control-label">Youtube Id</label>
+              <div class="col-sm-10">
+                  <input type="text" required class="form-control" id="videoId" name="videoId" value="{{ $video->videoId }}" placeholder="Youtube Id">
+              </div>
+            </div>
+          </div>
+
+          <div class="box-footer">
+              <button type="reset" class="btn btn-danger">Cancel</button>
+              <button type="submit" class="btn btn-success pull-right">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+@endsection

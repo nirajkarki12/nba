@@ -1,0 +1,119 @@
+body{
+	margin-top: 10px;
+	background-color: #033c73;
+	color: #FFFFFF;
+}
+.row{
+	margin: 0;
+}
+.slogan {
+	text-align: center;
+}
+.slogan h1{
+	font-size: 2rem;
+}
+.slogan h2 {
+	font-size: 1.8rem;
+}
+.slogan h2 span{
+	display: block;
+	font-size: 1rem;
+	margin-top: 0.3rem;
+}
+header .col-md-1 {
+	padding: 0;
+}
+header .nepal-flag img {
+	width: 80%;
+}
+header .visit-nepal img {
+	margin-top: 12px;
+}
+hr {
+	background-color: #888585;
+}
+.news-scroll {
+	margin-top: 10px;
+	margin-bottom: 12px;
+	padding: 5px 2px 0;
+	color:#fff; 
+	background-color:#d82727;
+}
+
+.news-scroll marquee {
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+}
+.staffs {
+}
+
+.staffs .col-md-1 {
+	padding-right: 5px;
+	padding-left: 0;
+}
+.staffs .staffs-img {
+	width: 100%;
+	height: 115px;
+	border-radius: 4%;
+	display: block;
+	margin-bottom: 1%;
+}
+
+.col-md-6 {
+  padding-right: 0;
+  padding-left: 7px;
+}
+
+.col-md-4 {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.col-md-2 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.carousel-caption {
+	bottom: 0;
+	padding-bottom: 0;
+}
+
+.heading{
+	font-size: 1.2rem;
+	text-align: center;
+	background: #F00;
+	font-weight: bold;
+	padding: 5px 0;
+	margin-bottom: 0;
+}
+
+ul#marquee {
+	padding: 5px 10px; 
+	font-size: 1.2rem;
+	background-color: #4c4444;	
+}
+
+ul#marquee li{
+}
+
+ul#marquee li a{
+	display: block;
+	color: #d2cccc;
+	text-decoration: none;
+}
+
+ul#marquee li a:hover{
+	color: #FFF;
+	text-decoration: none;
+}
+
+ul#marquee li span{
+	font-size: 1rem;
+}
+
+#myModal{
+	color: #212529 !important;
+}
+
