@@ -59,11 +59,31 @@
       @endforeach
     </ul>
   </div>
+
+  <div class="col-md-4">
+    <h3 class="heading">प्रतिनिधि</h3>
+  </div>
+
+  <div class="col-md-4 staffs text-center">
+    <h3 class="heading">कर्मचारी</h3>
+    <ul id="content-slider" class="content-slider">
+      @foreach($staffs as $staff)
+        <li>
+          {!! $staff['Photo'] !!}
+          <div class="title">
+            <strong>{{ $staff['Title'] }}</strong>
+          </div>
+          <div class="designation">
+            <em>{{ $staff['Designation'] }}</em>
+          </div>
+        </li>
+      @endforeach
+    </ul>
+  </div>
 </div>
 
 <!-- Large modal -->
 <div id="modalContent"></div>
-
 
 <div class="news-scroll">
   <marquee behavior="scroll" direction="left" scrollamount="4" onmouseover="this.stop()" onmouseout="this.start()">
@@ -197,6 +217,26 @@
       swipeThreshold: 40,
 
       responsive : [],
+
+    });
+    $("#content-slider").lightSlider({
+      item: 3,
+      loop:true,
+      keyPress:false,
+      mode: "slide",
+      useCSS: true,
+      cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+      easing: 'linear', //'for jquery animation',////
+
+      controls: false,
+
+      speed: 400, //ms'
+      auto: true,
+      loop: true,
+      slideEndAnimation: true,
+      pause: 3000,
+
+      pager: false,
 
     });
   });

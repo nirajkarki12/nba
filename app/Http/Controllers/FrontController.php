@@ -18,8 +18,7 @@ class FrontController extends Controller
 
       $url = 'http://basbariyamun.gov.np/staff-api';
 
-      // $staffs = $this->curlRequest($url, 'get');
-      $staffs = [];
+      $staffs = $this->curlRequest($url, 'get');
       $videos = Video::pluck('videoId');
       $notices = Notice::orderBy('created_at', 'desc')
       					->get();
