@@ -55,7 +55,7 @@ class StaffController extends Controller
                    'designation' => 'required|max:255',
                    'section' => 'required|max:255',
                    'phone' => 'required|max:255',
-                   'email' => 'required|max:255',
+                   'email' => 'max:255',
                    'room_no' => 'required|max:255',
                     'file' => 'mimes:jpeg,jpg,png',
                 )
@@ -123,7 +123,7 @@ class StaffController extends Controller
                    'designation' => 'required|max:255',
                    'section' => 'required|max:255',
                    'phone' => 'required|max:255',
-                   'email' => 'required|max:255',
+                   'email' => 'max:255',
                    'room_no' => 'required|max:255',
                     'file' => 'mimes:jpeg,jpg,png',
                 )

@@ -58,7 +58,7 @@
             <div class="form-group">
               <label for="email" class="col-sm-2 control-label">email</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="email">
+                  <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="email">
               </div>
             </div>
 

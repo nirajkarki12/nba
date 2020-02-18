@@ -19,7 +19,7 @@ class CreateStaffTable extends Migration
             $table->string('designation');
             $table->string('section');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('photo');
             $table->string('room_no');
             $table->string('photo_full_path');
