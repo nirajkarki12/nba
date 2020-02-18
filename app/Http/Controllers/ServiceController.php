@@ -63,7 +63,7 @@ class ServiceController extends Controller
             return back()->with('flash_success', 'Service added Successfully');
 
         } catch (\Exception $e) {
-            return back()->with('flash_error', $e->getMessage());
+            return back()->with('flash_error', $e->getMessage())->withInput();
         }
     }
 
@@ -120,7 +120,7 @@ class ServiceController extends Controller
             return redirect()->route('admin.service')->with('flash_success', 'Service updated Successfully');
 
         } catch (\Exception $e) {
-            return back()->with('flash_error', $e->getMessage());
+            return back()->with('flash_error', $e->getMessage())->withInput();
         }
     }
 

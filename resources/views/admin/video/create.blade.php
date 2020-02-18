@@ -30,21 +30,21 @@
             <div class="form-group">
               <label for="title" class="col-sm-1 control-label">Title</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="title" name="title" placeholder="Video Title">
+                  <input type="text" required class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Video Title">
               </div>
             </div>
 
             <div class="form-group">
               <label for="url" class="col-sm-1 control-label">Youtube URL</label>
               <div class="col-sm-10">
-                  <input type="url" required class="form-control" id="url" name="url" placeholder="Youtube URL">
+                  <input type="url" required class="form-control" id="url" name="url" value="{{ old('url') }}" placeholder="Youtube URL">
               </div>
             </div>
 
             <div class="form-group">
               <label for="videoId" class="col-sm-1 control-label">Youtube Id</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="videoId" name="videoId" placeholder="Youtube Id">
+                  <input type="text" required class="form-control" id="videoId" name="videoId" value="{{ old('videoId') }}" placeholder="Youtube Id">
               </div>
             </div>
           </div>

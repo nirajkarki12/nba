@@ -57,6 +57,21 @@ Route::group(['prefix' => 'admin'], function(){
 
 	});
 
+	// Staff
+	Route::group(['prefix' => 'staff'], function(){
+		// list
+		Route::get('/', 'StaffController@index')->name('admin.staff');
+		// Create
+		Route::get('/create', 'StaffController@create')->name('admin.staff.create');
+		Route::post('/store', 'StaffController@store')->name('admin.staff.store');
+		// Update
+		Route::get('/edit/{id}', 'StaffController@edit')->name('admin.staff.edit');
+		Route::post('/edit/{id}', 'StaffController@update')->name('admin.staff.update');
+		// Delete
+		Route::get('/delete/{id}', 'StaffController@destroy')->name('admin.staff.delete');
+
+	});
+
 
 });
 // FrontEnd

@@ -43,9 +43,10 @@ hr {
 .news-scroll marquee {
 	margin: 0;
 	padding: 0;
-	font-size: 1rem;
+	font-size: 1.3rem;
 }
 .staffs {
+	padding-left: 7px;
 }
 
 .staffs .col-md-1 {
@@ -89,27 +90,44 @@ hr {
 	margin-bottom: 0;
 }
 
-ul#marquee {
+ul.vertical-scroll {
+	list-style: decimal inside !important;
+	list-style-type:devanagari !important;
 	padding: 5px 10px; 
 	font-size: 1.2rem;
-	background-color: #4c4444;	
+	background-color: #4c4444;
+}
+ul.v-another {
+	background-color: #3e3030;
+	display: table;
+  table-layout: fixed;
+	
+}
+ul.v-another {
+	list-style-type:none !important;
+	display: table-cell;
+  width: 100%;
 }
 
-ul#marquee li{
+ul.v-another li{
+	margin-bottom: -20px !important;
 }
 
-ul#marquee li a{
-	display: block;
+ul.vertical-scroll li{
+}
+
+ul.vertical-scroll li a{
+	display: inline-block;
 	color: #d2cccc;
 	text-decoration: none;
 }
 
-ul#marquee li a:hover{
+ul.vertical-scroll li a:hover{
 	color: #FFF;
 	text-decoration: none;
 }
 
-ul#marquee li span{
+ul.vertical-scroll li span{
 	font-size: 1rem;
 }
 
@@ -117,3 +135,24 @@ ul#marquee li span{
 	color: #212529 !important;
 }
 
+
+.carousel2{
+}
+.carousel2 .carousel-inner{
+  height: 100px;
+}
+.carousel2 .carousel-caption{
+  color: #fff;
+  top: 50%;
+}
+
+.pratinidhi {
+	background-color: #CCC;
+	height: 261px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.janaPratinidhi {
+	padding:0 10px 10px 0
+}

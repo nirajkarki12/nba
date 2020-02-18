@@ -64,7 +64,7 @@ class VideoController extends Controller
             return back()->with('flash_success', 'Video added Successfully');
 
         } catch (\Exception $e) {
-            return back()->with('flash_error', $e->getMessage());
+            return back()->with('flash_error', $e->getMessage())->withInput();
         }
     }
 
@@ -122,7 +122,7 @@ class VideoController extends Controller
             return redirect()->route('admin.video')->with('flash_success', 'Video updated Successfully');
 
         } catch (\Exception $e) {
-            return back()->with('flash_error', $e->getMessage());
+            return back()->with('flash_error', $e->getMessage())->withInput();
         }
     }
 

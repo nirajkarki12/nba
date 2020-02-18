@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Helpers\Helper;
 use Validator;
-use App\Notice;
+use App\Staff;
 
-class NoticeController extends Controller
+class StaffController extends Controller
 {
 
     /**
@@ -27,8 +27,8 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $notices = Notice::paginate($perPage = 25);
-        return view('admin.notice.list', compact('notices'));
+        $staffs = Staff::paginate($perPage = 25);
+        return view('admin.staff.list', compact('staffs'));
     }
 
     /**
@@ -38,7 +38,7 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        return view('admin.notice.create');
+        return view('admin.staff.create');
     }
 
     /**
@@ -51,21 +51,27 @@ class NoticeController extends Controller
     {
         try {
             $validator = Validator::make( $request->all(), array(
-                   'title' => 'required|max:255',
-                   'description' => 'required',
-                    'file' => 'required|mimes:jpeg,jpg,png',
+                   'name' => 'required|max:255',
+                   'designation' => 'required|max:255',
+                   'section' => 'required|max:255',
+                   'phone' => 'required|max:255',
+                   'email' => 'required|max:255',
+                   'room_no' => 'required|max:255',
+                    'file' => 'mimes:jpeg,jpg,png',
                 )
             );
        
             if($validator->fails()) throw new \Exception($validator->messages()->first(), 1);
 
-            if(!$file = Helper::uploadImage($request->file('file'), 'notice')) throw new \Exception("Cannot upload image", 1);
+            if(!$file = Helper::uploadImage($request->file('file'), 'staff')) throw new \Exception("Cannot upload photo", 1);
 
-            $request->request->add(['image' => $file]);
+            $request->request->add(['photo' => $file]);
 
-            if(!Notice::create($request->all())) throw new \Exception("Something Went Wrong, Try Again!", 1);
+            if(!Staff::create($request->all())) {
+                throw new \Exception("Something Went Wrong, Try Again!", 1);
+            }
 
-            return back()->with('flash_success', 'Notice added Successfully');
+            return back()->with('flash_success', 'Staff added Successfully');
 
         } catch (\Exception $e) {
             return back()->with('flash_error', $e->getMessage())->withInput($request->except('file'));
@@ -94,9 +100,9 @@ class NoticeController extends Controller
         try {
             if(!$id) throw new \Exception("Error Processing Request", 1);
             
-            if(!$notice = Notice::find($id)) throw new \Exception("Record(s) not found", 1);
+            if(!$staff = Staff::find($id)) throw new \Exception("Record(s) not found", 1);
 
-            return view('admin.notice.edit', compact('notice'));
+            return view('admin.staff.edit', compact('staff'));
          } catch (\Exception $e) {
             return back()->with('flash_error', $e->getMessage());
          }
@@ -113,30 +119,38 @@ class NoticeController extends Controller
     {
         try {
             $validator = Validator::make( $request->all(), array(
-                   'title' => 'required|max:255',
-                   'description' => 'required',
+                   'name' => 'required|max:255',
+                   'designation' => 'required|max:255',
+                   'section' => 'required|max:255',
+                   'phone' => 'required|max:255',
+                   'email' => 'required|max:255',
+                   'room_no' => 'required|max:255',
                     'file' => 'mimes:jpeg,jpg,png',
                 )
             );
        
             if($validator->fails()) throw new \Exception($validator->messages()->first(), 1);
 
-            if(!$notice = Notice::find($id)) throw new \Exception("Notice not found", 1);
+            if(!$staff = Staff::find($id)) throw new \Exception("Staff not found", 1);
             $data = [
-                'title' => $request->title,
-                'description' => $request->description
+                'name' => $request->name,
+                'designation' => $request->designation,
+                'section' => $request->section,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'room_no' => $request->room_no,
             ];
             
             if($request->file('file'))
             {
-                $file = Helper::uploadImage($request->file('file'), 'notice');
-                Helper::deleteImage($notice->image, 'notice');
-                $data['image'] = $file;
+                $file = Helper::uploadImage($request->file('file'), 'staff');
+                Helper::deleteImage($staff->photo, 'staff');
+                $data['photo'] = $file;
             }
 
-            if(!$notice->update($data)) throw new \Exception("Error Processing Request", 1);
+            if(!$staff->update($data)) throw new \Exception("Error Processing Request", 1);
            
-            return redirect()->route('admin.notice')->with('flash_success', 'Notice updated Successfully');
+            return redirect()->route('admin.staff')->with('flash_success', 'Staff updated Successfully');
 
         } catch (\Exception $e) {
             return back()->with('flash_error', $e->getMessage())->withInput($request->except('file'));
@@ -153,14 +167,14 @@ class NoticeController extends Controller
     public function destroy($id)
     {
         try {
-            if(!$id) throw new \Exception("Notice not found", 1);
+            if(!$id) throw new \Exception("Staff not found", 1);
 
-            if(!$notice = Notice::find($id)) throw new \Exception("Notice not found", 1);
-            Helper::deleteImage($notice->image, 'notice');
+            if(!$staff = Staff::find($id)) throw new \Exception("Staff not found", 1);
+            Helper::deleteImage($staff->photo, 'staff');
 
-            if(!$notice::destroy($id)) throw new \Exception("Error Processing Request", 1);
+            if(!$staff::destroy($id)) throw new \Exception("Error Processing Request", 1);
             
-            return back()->with('flash_success', 'Notice Deleted Successfully');
+            return back()->with('flash_success', 'Staff Deleted Successfully');
                
         } catch (\Exception $e) {
             return back()->with('flash_error', $e->getMessage());

@@ -30,14 +30,14 @@
             <div class="form-group">
               <label for="title" class="col-sm-1 control-label">Title</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="title" name="title" value="{{ $notice->title }}" placeholder="Notice Title">
+                  <input type="text" required class="form-control" id="title" name="title" value="{{ old('title') ?: $notice->title }}" placeholder="Notice Title">
               </div>
             </div>
 
             <div class="form-group">
               <label for="description" class="col-sm-1 control-label">Description</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="description" name="description" value="{{ $notice->description }}" placeholder="Description">
+                  <input type="text" required class="form-control" id="description" name="description" value="{{ old('description') ?: $notice->description }}" placeholder="Description">
               </div>
             </div>
 
@@ -45,7 +45,7 @@
               <label for="file" class="col-sm-1 control-label">Image</label>
               <div class="col-sm-10">
                   <img style="height: 90px;margin-bottom: 15px; border-radius:2em;" src="{{ $notice->image_full_path }}">
-                  <input type="file" required accept="image/png, image/jpeg, image/jpg" id="file" name="file" placeholder="Image">
+                  <input type="file" accept="image/png, image/jpeg, image/jpg" id="file" name="file" placeholder="Image">
                   <p class="help-block">Please enter .png .jpeg .jpg images only.</p>
               </div>
             </div>

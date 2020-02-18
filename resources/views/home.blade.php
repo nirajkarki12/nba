@@ -12,7 +12,7 @@
     <div class="carousel-inner">
       @foreach($notices as $key => $notice)
         <div class="carousel-item @if($key == 1) active @endif">
-          <img class="d-block w-100" src="{{ $notice->image_full_path }}" alt="{{ $notice->title }}" style=" width:100%; height: 350px !important;">
+          <img class="d-block w-100" src="{{ $notice->image_full_path }}" alt="{{ $notice->title }}" style="height: 300px !important;">
           <div class="carousel-caption d-none d-md-block">
             <h5>{{ $notice->title }}</h5>
             <p>{{ $notice->description }}</p>
@@ -22,10 +22,10 @@
     </div>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-md-2 janaPratinidhi">
     <h3 class="heading">जन प्रतिनिधि</h3>
     <div class="text-center">
-      <img src="images/mayor.jpg" class="img-fluid" width="80%">
+      <img src="images/mayor.jpg" class="img-fluid" width="60%">
       <div class="title">
         <strong>राम अयोध्या यादव</strong>
       </div>
@@ -35,7 +35,7 @@
     </div>
 
     <div class="text-center">
-      <img src="images/upada.jpg" class="img-fluid" width="80%">
+      <img src="images/upada.jpg" class="img-fluid" width="60%">
       <div class="title">
         <strong>रिना कुमारी यादव</strong>
       </div>
@@ -49,37 +49,56 @@
 <div class="row">
   <div class="col-md-4">
     <h3 class="heading">नागरिक बडापत्र</h3>
-    <ul id="marquee">
+    <ul id="marquee" class="vertical-scroll">
       @foreach($services as $service)
-        <li>
-          <a href="javascript:void()" id="{{ $service->id }}" class="service-detail">
-            <span>{{ $loop->iteration }}</span>. {{ $service->title }}
-          </a>
-        </li>
+        <li><a href="javascript:void()" id="{{ $service->id }}" class="service-detail">{{ $service->title }}</a></li>
       @endforeach
     </ul>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-5 pratinidhi">
     <h3 class="heading">प्रतिनिधि</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>नाम</th>
+          <th>पद</th>
+          <th>सम्पर्क न.</th>
+          <th>कोठा न.</th>
+        </tr>
+      </thead>
+      <tbody id="slideTableData">
+        @foreach($staffs as $key=>$staff)
+        <tr>
+          <td><strong>{{ $staff->name }}</strong></td>
+          <td><em>{{ $staff->designation }}</em></td>
+          <td><em>{{ $staff->phone }}</em></td>
+          <td>{{ $staff->room_no }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
   </div>
 
-  <div class="col-md-4 staffs text-center">
+  <div class="col-md-3 staffs text-center">
     <h3 class="heading">कर्मचारी</h3>
     <ul id="content-slider" class="content-slider">
       @foreach($staffs as $staff)
         <li>
+          <img src="{{ $staff->photo_full_path }}" alt="{{ $staff->name }}" class="img-fluid staffs-img">
           {!! $staff['Photo'] !!}
           <div class="title">
-            <strong>{{ $staff['Title'] }}</strong>
+            <strong>{{ $staff->name }}</strong>
           </div>
           <div class="designation">
-            <em>{{ $staff['Designation'] }}</em>
+            <em>{{ $staff->designation }}</em>
           </div>
         </li>
       @endforeach
     </ul>
   </div>
+
+  
 </div>
 
 <!-- Large modal -->
@@ -127,7 +146,7 @@
 
   function onYouTubeIframeAPIReady() {
       player = new YT.Player('player', {
-        height: '350',
+        height: '300',
         width: '425',
         playerVars: {
           'autoplay': 1,
@@ -162,18 +181,39 @@
     }
   }
 
+  $.fn.infiniteScrollUp = function(){
+    var self=this,kids = self.children()
+    kids.slice(20).hide();
+    setInterval(function(){
+      kids.filter(':hidden').eq(0).fadeIn()
+      kids.eq(0).fadeOut(200, function(){
+
+        $(this).animate({ padding: 0 }).appendTo(self);
+        kids=self.children();
+      })
+    },4000);
+    return this;
+  }
+
   $(document).ready(function() {
+    $('tbody').infiniteScrollUp();
+
     $('.service-detail').click(function(e) {
       var id = this.id;
       serviceDetail(id);
     });
+
     $('.carousel').carousel({
       interval: 10000
     });
 
-    $('body').find('div.staffs img').each(function(i, obj) {
-      $(this).addClass('img-fluid staffs-img');
+    $('.carousel2').carousel({
+      interval: 1000
     });
+
+    // $('body').find('div.staffs img').each(function(i, obj) {
+    //   $(this).addClass('img-fluid staffs-img');
+    // });
 
     $("#marquee").lightSlider({
       item: 6,
@@ -190,7 +230,7 @@
       auto: true,
       loop: true,
       slideEndAnimation: true,
-      pause: 3000,
+      pause: 4000,
 
       keyPress: false,
       controls: false,
@@ -219,8 +259,9 @@
       responsive : [],
 
     });
+    
     $("#content-slider").lightSlider({
-      item: 3,
+      item: 2,
       loop:true,
       keyPress:false,
       mode: "slide",

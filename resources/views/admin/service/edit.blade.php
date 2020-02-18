@@ -30,14 +30,14 @@
             <div class="form-group">
               <label for="title" class="col-sm-1 control-label">Title</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="title" name="title" value="{{ $service->title }}" placeholder="Title">
+                  <input type="text" required class="form-control" id="title" name="title" value="{{ old('title') ?: $service->title }}" placeholder="Title">
               </div>
             </div>
 
             <div class="form-group">
               <label for="detail" class="col-sm-1 control-label">Detail</label>
               <div class="col-sm-10">
-                <textarea id="detail" name="detail" rows="10" cols="80">{{ $service->detail }}</textarea>
+                <textarea id="detail" name="detail" rows="10" cols="80">{{ old('detail') ?: $service->detail }}</textarea>
               </div>
             </div>
 

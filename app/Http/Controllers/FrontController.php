@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Video;
 use App\Notice;
 use App\Service;
+use App\Staff;
 
 class FrontController extends Controller
 {
@@ -16,9 +17,8 @@ class FrontController extends Controller
 
    public function index() {
 
-      $url = 'http://basbariyamun.gov.np/staff-api';
-
-      $staffs = $this->curlRequest($url, 'get');
+      $staffs = Staff::orderBy('created_at', 'asc')
+                     ->get();
       $videos = Video::pluck('videoId');
       $notices = Notice::orderBy('created_at', 'desc')
       					->get();

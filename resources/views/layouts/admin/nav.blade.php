@@ -23,19 +23,9 @@
               </a>
             </li>
 
-            <li class="treeview" id="categories">
-                <a href="{{route('admin.video')}}">
-                    <i class="fa fa-suitcase"></i> <span>Videos</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li id="add-video"><a href="{{route('admin.video.create')}}"><i class="fa fa-circle-o"></i>Add Video</a></li>
-                    <li id="view-videos"><a href="{{route('admin.video')}}"><i class="fa fa-circle-o"></i>List Videos</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview" id="categories">
+            <li class="treeview" id="notices">
                 <a href="{{route('admin.notice')}}">
-                    <i class="fa fa-suitcase"></i> <span>Notices</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-bell"></i> <span>Notices</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li id="add-notice"><a href="{{route('admin.notice.create')}}"><i class="fa fa-circle-o"></i>Add Notice</a></li>
@@ -43,13 +33,33 @@
                 </ul>
             </li>
 
-            <li class="treeview" id="categories">
+            <li class="treeview" id="services">
                 <a href="{{route('admin.service')}}">
-                    <i class="fa fa-suitcase"></i> <span>Services</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-align-justify"></i> <span>Services</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li id="add-service"><a href="{{route('admin.service.create')}}"><i class="fa fa-circle-o"></i>Add Service</a></li>
                     <li id="view-services"><a href="{{route('admin.service')}}"><i class="fa fa-circle-o"></i>List Services</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview" id="staffs">
+                <a href="{{route('admin.staff')}}">
+                    <i class="fa fa-users"></i> <span>Staffs</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li id="add-staff"><a href="{{route('admin.staff.create')}}"><i class="fa fa-circle-o"></i>Add Staff</a></li>
+                    <li id="view-staffs"><a href="{{route('admin.staff')}}"><i class="fa fa-circle-o"></i>List Staff</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview" id="videos">
+                <a href="{{route('admin.video')}}">
+                    <i class="fa fa-youtube"></i> <span>Videos</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li id="add-video"><a href="{{route('admin.video.create')}}"><i class="fa fa-circle-o"></i>Add Video</a></li>
+                    <li id="view-videos"><a href="{{route('admin.video')}}"><i class="fa fa-circle-o"></i>List Videos</a></li>
                 </ul>
             </li>
 

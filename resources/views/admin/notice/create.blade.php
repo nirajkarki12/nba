@@ -30,14 +30,14 @@
             <div class="form-group">
               <label for="title" class="col-sm-1 control-label">Title</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="title" name="title" placeholder="Notice Title">
+                  <input type="text" required class="form-control" id="title" name="title" value="{{ old('title') }}" placeholder="Notice Title">
               </div>
             </div>
 
             <div class="form-group">
               <label for="description" class="col-sm-1 control-label">Description</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="description" name="description" placeholder="Description">
+                  <input type="text" required class="form-control" id="description" name="description" value="{{ old('description') }}" placeholder="Description">
               </div>
             </div>
 
