@@ -17,11 +17,11 @@ class CreateStaffTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('designation');
-            $table->string('section');
+            $table->string('section')->nullable();
             $table->string('phone');
             $table->string('email')->nullable();
             $table->string('photo');
-            $table->string('room_no');
+            $table->string('room_no')->nullable();
             $table->string('photo_full_path');
             $table->timestamps();
         });

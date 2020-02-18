@@ -44,7 +44,7 @@
             <div class="form-group">
               <label for="section" class="col-sm-2 control-label">Section</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="section" name="section" value="{{ old('section') ?: $staff->section }}" placeholder="Section">
+                  <input type="text" class="form-control" id="section" name="section" value="{{ old('section') ?: $staff->section }}" placeholder="Section">
               </div>
             </div>
 
@@ -65,7 +65,7 @@
             <div class="form-group">
               <label for="room_no" class="col-sm-2 control-label">Room No.</label>
               <div class="col-sm-10">
-                  <input type="text" required class="form-control" id="room_no" name="room_no" value="{{ old('room_no') ?: $staff->room_no }}" placeholder="Room Number">
+                  <input type="text" class="form-control" id="room_no" name="room_no" value="{{ old('room_no') ?: $staff->room_no }}" placeholder="Room Number">
               </div>
             </div>
 
