@@ -62,9 +62,9 @@
       <thead>
         <tr>
           <th>नाम</th>
-          <th>पद</th>
-          <th>सम्पर्क न.</th>
-          <th>कोठा न.</th>
+          <th width="30%">पद</th>
+          <th width="21%">सम्पर्क न.</th>
+          <th width="13%">कोठा न.</th>
         </tr>
       </thead>
       <tbody id="slideTableData">
