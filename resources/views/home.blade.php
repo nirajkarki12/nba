@@ -58,7 +58,7 @@
       <div class="col-md-6 staffs text-center" style="padding-left: 0;">
         <h3 class="heading">प्रतिनिधि</h3>
         <ul id="content-slider" class="content-slider">
-          @foreach($staffs3 as $staff)
+          @foreach($staffs2 as $staff)
             <li>
               <img src="{{ $staff->photo_full_path }}" alt="{{ $staff->name }}" class="img-fluid staffs-img">
               {!! $staff['Photo'] !!}
@@ -238,7 +238,7 @@
     // });
 
     $("#marquee").lightSlider({
-      item: 8,
+      item: 9,
       /*autoWidth: false,
       slideMove: 1, */// slidemove will be 1 if loop is true
       slideMargin: 0,
@@ -263,7 +263,7 @@
       adaptiveHeight:false,
 
       vertical:true,
-      verticalHeight:280,
+      verticalHeight:300,
       vThumbWidth:100,
 
       thumbItem:10,
@@ -283,7 +283,7 @@
     });
     
     $("#content-slider").lightSlider({
-      item: 2,
+      item: 3,
       loop:true,
       keyPress:false,
       mode: "slide",
@@ -304,7 +304,7 @@
     });
 
     $("#content-slider2").lightSlider({
-      item: 2,
+      item: 3,
       loop:true,
       keyPress:false,
       mode: "slide",
