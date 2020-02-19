@@ -18,6 +18,7 @@ class CreateStaffTable extends Migration
             $table->string('name');
             $table->string('designation');
             $table->string('section')->nullable();
+            $table->string('employee_type');
             $table->string('phone');
             $table->string('email')->nullable();
             $table->string('photo');

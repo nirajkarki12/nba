@@ -31,8 +31,7 @@
 						    <tr>
 						      <th>SN.</th>
 						      <th>Name</th>
-						      <th>Designation</th>
-						      <th>Section</th>
+						      <th>Employee Type</th>
 						      <th>Phone</th>
 						      <th>Email</th>
 						      <th>Room No.</th>
@@ -46,9 +45,31 @@
 								@foreach($staffs as $key => $staff)
 							    <tr>
 						      	<td>{{ $staffs->firstItem() + $key }}</td>
-						      	<td>{{ $staff->name }}</td>
-						      	<td>{{ $staff->designation }}</td>
-						      	<td>{{ $staff->section }}</td>
+						      	<td>
+						      		<strong>{{ $staff->name }}</strong>
+						      		<br>
+						      		<em>{{ $staff->designation }}</em>
+						      		<br>
+						      		<em><small>{{ $staff->section }}</small></em>
+						      	</td>
+						      	<td>
+						      		@switch($staff->employee_type)
+										    @case(1)
+								        	जन प्रतिनिधि
+								        @break
+
+										    @case(2)
+										    	प्रतिनिधि
+								        @break
+
+								        @case(3)
+								        	कर्मचारी
+								        @break
+
+										    @default
+								        	कर्मचारी
+											@endswitch
+						      	</td>
 						      	<td>{{ $staff->phone }}</td>
 						      	<td>{{ $staff->email }}</td>
 						      	<td>{{ $staff->room_no }}</td>

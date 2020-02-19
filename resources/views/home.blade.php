@@ -24,25 +24,21 @@
 
   <div class="col-md-2 janaPratinidhi">
     <h3 class="heading">जन प्रतिनिधि</h3>
-    <div class="text-center">
-      <img src="images/mayor.jpg" class="img-fluid" width="60%">
-      <div class="title">
-        <strong>राम अयोध्या यादव</strong>
+    @foreach($staffs1 as $staff1)
+      <div class="text-center">
+        <img src="{{ $staff1->photo_full_path }}" class="img-fluid" width="50%">
+        <div class="title">
+          <strong>{{ $staff1->name }}</strong>
+        </div>
+        <div class="designation">
+          <em>{{ $staff1->designation }}</em>
+        </div>
+        <div class="phone">
+          <em>{{ $staff1->phone }}</em>
+        </div>
       </div>
-      <div class="designation">
-        <em>अध्यक्ष</em>
-      </div>
-    </div>
-
-    <div class="text-center">
-      <img src="images/upada.jpg" class="img-fluid" width="60%">
-      <div class="title">
-        <strong>रिना कुमारी यादव</strong>
-      </div>
-      <div class="designation">
-        <em>उपाध्यक्ष</em>
-      </div>
-    </div>
+    @endforeach
+    
   </div>
 </div>
 
@@ -56,46 +52,72 @@
     </ul>
   </div>
 
-  <div class="col-md-5 pratinidhi">
-    <h3 class="heading">प्रतिनिधि</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>नाम</th>
-          <th width="30%">पद</th>
-          <th width="21%">सम्पर्क न.</th>
-          <th width="13%">कोठा न.</th>
-        </tr>
-      </thead>
-      <tbody id="slideTableData">
-        @foreach($staffs as $key=>$staff)
-        <tr>
-          <td><strong>{{ $staff->name }}</strong></td>
-          <td><em>{{ $staff->designation }}</em></td>
-          <td><em>{{ $staff->phone }}</em></td>
-          <td>{{ $staff->room_no }}</td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
+  <div class="col-md-8">
+    <div class="row">
 
-  <div class="col-md-3 staffs text-center">
-    <h3 class="heading">कर्मचारी</h3>
-    <ul id="content-slider" class="content-slider">
-      @foreach($staffs as $staff)
-        <li>
-          <img src="{{ $staff->photo_full_path }}" alt="{{ $staff->name }}" class="img-fluid staffs-img">
-          {!! $staff['Photo'] !!}
-          <div class="title">
-            <strong>{{ $staff->name }}</strong>
-          </div>
-          <div class="designation">
-            <em>{{ $staff->designation }}</em>
-          </div>
-        </li>
-      @endforeach
-    </ul>
+      <div class="col-md-6 staffs text-center" style="padding-left: 0;">
+        <h3 class="heading">प्रतिनिधि</h3>
+        <ul id="content-slider" class="content-slider">
+          @foreach($staffs3 as $staff)
+            <li>
+              <img src="{{ $staff->photo_full_path }}" alt="{{ $staff->name }}" class="img-fluid staffs-img">
+              {!! $staff['Photo'] !!}
+              <div class="title">
+                <strong>{{ $staff->name }}</strong>
+              </div>
+              <div class="designation">
+                <em>{{ $staff->designation }}</em>
+              </div>
+            </li>
+          @endforeach
+        </ul>
+      </div>
+
+      <div class="col-md-6 staffs text-center">
+        <h3 class="heading">कर्मचारी</h3>
+        <ul id="content-slider2" class="content-slider">
+          @foreach($staffs3 as $staff)
+            <li>
+              <img src="{{ $staff->photo_full_path }}" alt="{{ $staff->name }}" class="img-fluid staffs-img">
+              {!! $staff['Photo'] !!}
+              <div class="title">
+                <strong>{{ $staff->name }}</strong>
+              </div>
+              <div class="designation">
+                <em>{{ $staff->designation }}</em>
+              </div>
+            </li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-12 pratinidhi">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>नाम</th>
+              <th width="30%">पद</th>
+              <th width="21%">सम्पर्क न.</th>
+              <th width="13%">कोठा न.</th>
+            </tr>
+          </thead>
+          <tbody id="slideTableData">
+            @foreach($staffs as $key=>$staff)
+            <tr>
+              <td><strong>{{ $staff->name ?: '-' }}</strong></td>
+              <td><em>{{ $staff->designation ?: '-' }}</em></td>
+              <td><em>{{ $staff->phone ?: '-' }}</em></td>
+              <td>{{ $staff->room_no ?: '-' }}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 
   
@@ -216,7 +238,7 @@
     // });
 
     $("#marquee").lightSlider({
-      item: 6,
+      item: 8,
       /*autoWidth: false,
       slideMove: 1, */// slidemove will be 1 if loop is true
       slideMargin: 0,
@@ -241,7 +263,7 @@
       adaptiveHeight:false,
 
       vertical:true,
-      verticalHeight:230,
+      verticalHeight:280,
       vThumbWidth:100,
 
       thumbItem:10,
@@ -276,6 +298,27 @@
       loop: true,
       slideEndAnimation: true,
       pause: 3000,
+
+      pager: false,
+
+    });
+
+    $("#content-slider2").lightSlider({
+      item: 2,
+      loop:true,
+      keyPress:false,
+      mode: "slide",
+      useCSS: true,
+      cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+      easing: 'linear', //'for jquery animation',////
+
+      controls: false,
+
+      speed: 600, //ms'
+      auto: true,
+      loop: true,
+      slideEndAnimation: true,
+      pause: 4500,
 
       pager: false,
 

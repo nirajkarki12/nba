@@ -135,6 +135,10 @@ ul.vertical-scroll li span{
 	color: #212529 !important;
 }
 
+.col-md-8 {
+	padding-left: 0;
+	padding-right: 7px;
+}
 
 .carousel2{
 }
@@ -147,12 +151,35 @@ ul.vertical-scroll li span{
 }
 
 .pratinidhi {
-	background-color: #CCC;
-	height: 261px;
+	margin-top: 10px;
+	background-color: #cac6c6;
+	height: 105px;
   overflow: hidden;
   padding: 0;
 }
 
+.pratinidhi .table th, .pratinidhi .table td{
+	border: none;
+}
+
+.pratinidhi thead {
+	background-color: rgba(52, 139, 206, 0.8);
+}
+
 .janaPratinidhi {
 	padding:0 10px 10px 0;
+}
+.janaPratinidhi .text-center {
+	margin-bottom: 5px;
+}
+
+.janaPratinidhi .text-center:last-child {
+	margin-bottom: 0;
+}
+.janaPratinidhi .phone{
+	font-size: 0.8rem;
+}
+
+.janaPratinidhi .designation{
+	margin: -3px 0;
 }

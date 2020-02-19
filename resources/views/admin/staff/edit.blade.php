@@ -49,6 +49,17 @@
             </div>
 
             <div class="form-group">
+              <label for="employee_type" class="col-sm-2 control-label">Employee Type</label>
+              <div class="col-sm-10">
+                <select class="form-control" id="employee_type" name="employee_type">
+                  <option value="1" {{ (old('employee_type') && old('employee_type') == '1') ? 'selected' : ($staff->employee_type == '1' ? 'selected' : false) }}>जन प्रतिनिधि</option>
+                  <option value="2" {{ (old('employee_type') && old('employee_type') == '2') ? 'selected' : ($staff->employee_type == '2' ? 'selected' : false) }}>प्रतिनिधि</option>
+                  <option value="3" {{ (old('employee_type') && old('employee_type') == '3') ? 'selected' : ($staff->employee_type == '3' ? 'selected' : false) }}>कर्मचारी</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
               <label for="phone" class="col-sm-2 control-label">Phone</label>
               <div class="col-sm-10">
                   <input type="text" required class="form-control" id="phone" name="phone" value="{{ old('phone') ?: $staff->phone }}" placeholder="Phone">

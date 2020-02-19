@@ -15,7 +15,7 @@ class Staff extends Model
 	 * @var array
 	 */
 	protected $fillable = [
-	    'name', 'designation', 'section', 'phone', 'email', 'photo', 'room_no', 'photo_full_path'
+	    'name', 'designation', 'section', 'employee_type', 'phone', 'email', 'photo', 'room_no', 'photo_full_path'
 	];
 
 	public function setPhotoAttribute($image) {

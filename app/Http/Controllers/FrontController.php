@@ -17,15 +17,24 @@ class FrontController extends Controller
 
    public function index() {
 
+      $staffs1 = Staff::where('employee_type', '1')
+                  ->orderBy('created_at', 'asc')
+                  ->get();
+      $staffs2 = Staff::where('employee_type', '2')
+                  ->orderBy('created_at', 'asc')
+                  ->get();
+      $staffs3 = Staff::where('employee_type', '3')
+                  ->orderBy('created_at', 'asc')
+                  ->get();
       $staffs = Staff::orderBy('created_at', 'asc')
-                     ->get();
+                  ->get();
       $videos = Video::pluck('videoId');
       $notices = Notice::orderBy('created_at', 'desc')
       					->get();
       $services = Service::orderBy('created_at', 'asc')
                   ->get();
 
-   	return view('home', compact('staffs', 'videos', 'notices', 'services'));
+   	return view('home', compact('staffs1', 'staffs2', 'staffs3', 'staffs', 'videos', 'notices', 'services'));
    }
 
    public function getVideos() {
