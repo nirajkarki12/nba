@@ -50,6 +50,10 @@ hr {
   background-color: #d82727;
 }
 
+.news-scroll p {
+  margin: 0 !important;
+}
+
 .news-scroll marquee {
   margin: 0;
   padding: 0;

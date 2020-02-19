@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use Hash;
+use App\Settings;
 
 class AdminController extends Controller
 {
@@ -26,7 +27,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $news = Settings::where('key', 'news')->firstOrFail();
+
+        return view('admin.dashboard', compact('news'));
     }
 
     public function profile() {
@@ -99,5 +102,28 @@ class AdminController extends Controller
         $response = response()->json($response_array,$response_code);
 
         return $response;
+    }
+
+    public function updateNews(Request $request)
+    {
+        try {
+            $validator = Validator::make( $request->all(), array(
+                   'news' => 'required',
+                )
+            );
+       
+            if($validator->fails()) throw new \Exception($validator->messages()->first(), 1);
+
+            if(!$news = Settings::where('key', 'news')->firstOrFail()) throw new \Exception("News not found", 1);
+
+            $news->value = $request->news;
+            $news->save();
+           
+            return redirect()->route('admin.dashboard')->with('flash_success', 'Scrolling News updated Successfully');
+
+        } catch (\Exception $e) {
+            return back()->with('flash_error', $e->getMessage())->withInput();
+        }
+
     }
 }

@@ -8,6 +8,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
+	Route::post('/news-save', 'AdminController@updateNews')->name('admin.news.save');
 	Route::get('profile', 'AdminController@profile')->name('admin.profile');
 	Route::post('/profile/save', 'AdminController@profileSave')->name('admin.profile.save');
 	Route::post('/change/password', 'AdminController@changePassword')->name('admin.change.password');

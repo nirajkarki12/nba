@@ -7,6 +7,7 @@ use App\Video;
 use App\Notice;
 use App\Service;
 use App\Staff;
+use App\Settings;
 
 class FrontController extends Controller
 {
@@ -34,7 +35,9 @@ class FrontController extends Controller
       $services = Service::orderBy('created_at', 'asc')
                   ->get();
 
-   	return view('home', compact('staffs1', 'staffs2', 'staffs3', 'staffs', 'videos', 'notices', 'services'));
+      $news = Settings::where('key', 'news')->firstOrFail();
+
+   	return view('home', compact('staffs1', 'staffs2', 'staffs3', 'staffs', 'news', 'videos', 'notices', 'services'));
    }
 
    public function getVideos() {
