@@ -42,7 +42,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" style="margin-top:10px">
   <div class="col-md-4">
     <h3 class="heading">नागरिक बडापत्र</h3>
     <ul id="marquee" class="vertical-scroll">
@@ -213,7 +213,7 @@
         $(this).animate({ padding: 0 }).appendTo(self);
         kids=self.children();
       })
-    },4000);
+    },10000);
     return this;
   }
 

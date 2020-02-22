@@ -46,12 +46,12 @@
 
       
   </header>
-  <hr>
-  <!-- <div class="row text-center">
+  <!-- <hr> -->
+  <div class="row text-center header-info">
     <div class="col-md-12">
       <strong>अनुसूची फारम कालाे मसिले भर्नुहाेला ।</strong>
     </div>
-  </div> -->
+  </div>
   @yield('content')
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
