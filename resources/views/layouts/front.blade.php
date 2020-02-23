@@ -31,8 +31,9 @@
         <div class="col-md-8 slogan">
           <h1>Nepal Citizen Charter of Basbariya Muncipality</h1>
           <h2>
-            बसबरीया गाउँपालिकाबाट प्रदान गरिने सेवाहरुको विवरण
+            उदाहरण गाउँपालिकाबाट प्रदान गरिने सेवाहरुको विवरण
           </h2>
+          <!-- बसबरीया -->
         </div>
 
         <div class="col-md-1 nepal-flag">

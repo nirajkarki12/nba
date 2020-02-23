@@ -238,7 +238,7 @@
     // });
 
     $("#marquee").lightSlider({
-      item: 9,
+      item: 10,
       /*autoWidth: false,
       slideMove: 1, */// slidemove will be 1 if loop is true
       slideMargin: 0,
@@ -263,7 +263,7 @@
       adaptiveHeight:false,
 
       vertical:true,
-      verticalHeight:300,
+      verticalHeight:323,
       vThumbWidth:100,
 
       thumbItem:10,
