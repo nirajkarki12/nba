@@ -76,7 +76,7 @@
       <div class="col-md-6 staffs text-center">
         <h3 class="heading">कर्मचारी</h3>
         <ul id="content-slider2" class="content-slider">
-          @foreach($staffs3 as $staff)
+          @foreach($staffs3 as $key => $staff)
             <li>
               <img src="{{ $staff->photo_full_path }}" alt="{{ $staff->name }}" class="img-fluid staffs-img">
               {!! $staff['Photo'] !!}
